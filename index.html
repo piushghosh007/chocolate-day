@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dairy Milk Chocolate with Wrapper</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f3e5ab;
+            overflow: hidden;
+        }
+        .wrapper {
+            position: relative;
+            width: 220px;
+            height: 120px;
+            background-color: purple;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            transition: transform 1s ease-in-out;
+        }
+        .branding {
+            position: absolute;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            font-family: Arial, sans-serif;
+        }
+        .chocolate {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 10px;
+            justify-content: center;
+            align-items: center;
+            display: none;
+        }
+        .piece {
+            width: 45px;
+            height: 45px;
+            background-color: #4e260e;
+            margin: 2px;
+            border-radius: 5px;
+            box-shadow: inset -2px -2px 4px rgba(0,0,0,0.3);
+        }
+        .message {
+            display: none;
+            font-size: 20px;
+            font-weight: bold;
+            color: brown;
+            margin-top: 20px;
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: purple;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper" id="wrapper">
+        <div class="branding">Dairy Milk</div>
+        <div class="chocolate" id="chocolate">
+            <div class="piece"></div>
+            <div class="piece"></div>
+            <div class="piece"></div>
+            <div class="piece"></div>
+            <div class="piece"></div>
+            <div class="piece"></div>
+            <div class="piece"></div>
+            <div class="piece"></div>
+        </div>
+    </div>
+    <button id="tearButton" onclick="openWrapper()">Tear Wrapper</button>
+    <button id="eatButton" onclick="eatChocolate()" style="display: none;">Eat Chocolate</button>
+    <div class="message" id="message">Happy Chocolate Day Baby! ❤️</div>
+    <script>
+        function openWrapper() {
+            document.getElementById('wrapper').style.transform = 'translateY(-150%)';
+            setTimeout(() => {
+                document.getElementById('chocolate').style.display = 'flex';
+                document.getElementById('tearButton').style.display = 'none';
+                document.getElementById('eatButton').style.display = 'block';
+            }, 1000);
+        }
+        function eatChocolate() {
+            document.getElementById('chocolate').style.opacity = '0';
+            setTimeout(() => {
+                document.getElementById('chocolate').style.display = 'none';
+                document.getElementById('eatButton').style.display = 'none';
+                document.getElementById('message').style.display = 'block';
+            }, 1000);
+        }
+    </script>
+</body>
+</html>
